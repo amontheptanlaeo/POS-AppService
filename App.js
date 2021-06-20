@@ -11,7 +11,7 @@ import Colors from './src/constants/colos'
 
 const navigator = createStackNavigator (
   {
-    Home: HomeScreenn,
+    Home: HomeScreen,
     Login: LoginScreen,
     Register: RegisterScreen,
     ForgetPass: ForgetScreen,
