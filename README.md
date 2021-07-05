@@ -1,3 +1,3 @@
 # POS-AppService
-Project University
+* Project University
 # EXPO-React Native
