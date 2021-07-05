@@ -27,7 +27,7 @@ const Login = ({ navigation }) => {
                     value={Pass}
                 />
                 <View style={{ borderRadius: 100, width: 270 }}>
-                    <TouchableOpacity style={myStyles.roundButton1} onPress={()=> navigation.navigate('Product')}>
+                    <TouchableOpacity style={myStyles.roundButton1} onPress={()=> navigation.replace('Product')}>
                         <Text style={{ color: Colors.white }}>เข้าสู่ระบบ</Text>
                     </TouchableOpacity>
                     <View style={{ flexDirection: 'row', marginTop: 10, alignSelf: 'center' }}>

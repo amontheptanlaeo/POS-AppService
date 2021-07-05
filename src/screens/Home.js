@@ -20,15 +20,17 @@ const Home = ({ navigation }) => {
 
 
             <View style={myStyles.container}>
+                <View style={myStyles.circle1}></View>
                 <Text style={myStyles.header}>NB-POS-APP</Text>
                 <View>
-                    <TouchableOpacity style={myStyles.roundButton1} onPress={()=> navigation.navigate('Login')}>
+                    <TouchableOpacity style={myStyles.roundButton1} onPress={() => navigation.navigate('Login')}>
                         <Text style={{ color: Colors.white , fontSize: 22 , fontFamily: "Kanit_400Regular"}}>เข้าสู่ระบบ</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={myStyles.roundButton1} onPress={()=> navigation.navigate('Register')}>
+                    <TouchableOpacity style={myStyles.roundButton1} onPress={() => navigation.navigate('Register')}>
                         <Text style={{ color: Colors.white , fontSize: 22 , fontFamily: "Kanit_400Regular"}}>สมัครสมาชิก</Text>
                     </TouchableOpacity>
                 </View>
+                <View style={myStyles.circle2}></View>
             </View>
 
     )
@@ -40,6 +42,24 @@ const myStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    circle1: {
+        position: 'absolute',
+        width: 369,
+        height: 389,
+        left: -199,
+        top: -195,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 100000
+    },
+    circle2: {
+        position: 'absolute',
+        width: 264,
+        height: 278,
+        left: 280,
+        top: 580,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 1000
     },
     header: {
         fontFamily: "Kanit_400Regular",
