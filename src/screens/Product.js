@@ -2,15 +2,23 @@ import React, { useState , useLayoutEffect } from 'react'
 import { View, Text, StyleSheet, TextInput, Alert, Button, TouchableOpacity, ScrollView, Image, Modal, Pressable } from 'react-native'
 import Colors from '../constants/colos'
 import Coke from '../images/Coke.png'
+import { StatusBar } from 'expo-status-bar'
 
 const Product = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [count, setCount] = useState(1);
 
+    useLayoutEffect(()=> {
+        navigation.setOptions({
+            headerTintColor:  "#fff",
+        })
+    },[navigation])
+
     
 
     return (
         <ScrollView style={myStyles.container}>
+            <StatusBar style="dark"/>
 
             <Text style={myStyles.header}>เครื่องดื่ม  <TouchableOpacity onPress={() => navigation.navigate('SeeItems')}><Text style={myStyles.seeAll}>ดูทั้งหมด</Text></TouchableOpacity></Text>
             <ScrollView style={myStyles.container} horizontal={true}>

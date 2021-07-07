@@ -1,37 +1,111 @@
-import React from 'react'
-import { View, Text, StyleSheet, TextInput, Alert , Button , TouchableOpacity, TouchableWithoutFeedback  , Keyboard} from 'react-native'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import Colors from '../constants/colos'
-import { 
-    useFonts,
-    Kanit_400Regular,
-  } from '@expo-google-fonts/kanit' 
+import { StatusBar } from 'expo-status-bar'
+
 
 const Home = ({ navigation }) => {
 
-     let [fontsLoaded] = useFonts({
-        Kanit_400Regular
-      }); 
 
-      if(!fontsLoaded){
-          return ( <View><Text>Loading</Text></View>)
-      }
+
+
+
 
     return (
 
-
-            <View style={myStyles.container}>
-                <View style={myStyles.circle1}></View>
-                <Text style={myStyles.header}>NB-POS-APP</Text>
-                <View>
-                    <TouchableOpacity style={myStyles.roundButton1} onPress={() => navigation.navigate('Login')}>
-                        <Text style={{ color: Colors.white , fontSize: 22 , fontFamily: "Kanit_400Regular"}}>เข้าสู่ระบบ</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={myStyles.roundButton1} onPress={() => navigation.navigate('Register')}>
-                        <Text style={{ color: Colors.white , fontSize: 22 , fontFamily: "Kanit_400Regular"}}>สมัครสมาชิก</Text>
+        <View style={myStyles.container}>
+            <StatusBar style="dark" />
+            <View style={myStyles.circle1}></View>
+            <Text style={myStyles.header}>Menu</Text>
+            <View style={{ flexDirection: 'row' , flexWrap:'wrap' , justifyContent:'center' , alignItems:'center'}}>
+                <View style={myStyles.icon}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                        <Image
+                            style={{ width: 60, height: 60, alignSelf: 'center' }}
+                            source={require('../images/Icons/pointer-screen.png')}
+                        />
+                        <Text style={myStyles.desIcon}>จัดการสินค้า</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={myStyles.circle2}></View>
+                <View style={myStyles.icon}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                        <Image
+                            style={{ width: 60, height: 60, alignSelf: 'center' }}
+                            source={require('../images/Icons/cash-register.png')}
+                        />
+                        <Text style={myStyles.desIcon}>ขาย</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={myStyles.icon}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                        <Image
+                            style={{ width: 60, height: 60, alignSelf: 'center' }}
+                            source={require('../images/Icons/invoice.png')}
+                        />
+                        <Text style={myStyles.desIcon}>ภาพรวมร้าน</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={myStyles.icon}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                        <Image
+                            style={{ width: 60, height: 60, alignSelf: 'center' }}
+                            source={require('../images/Icons/barcode-scanning.png')}
+                        />
+                        <Text style={myStyles.desIcon}>จัดการสินค้า</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={myStyles.icon}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                        <Image
+                            style={{ width: 60, height: 60, alignSelf: 'center' }}
+                            source={require('../images/Icons/barcode-scanning.png')}
+                        />
+                        <Text style={myStyles.desIcon}>จัดการสินค้า</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={myStyles.icon}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                        <Image
+                            style={{ width: 60, height: 60, alignSelf: 'center' }}
+                            source={require('../images/Icons/barcode-scanning.png')}
+                        />
+                        <Text style={myStyles.desIcon}>จัดการสินค้า</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={myStyles.icon}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                        <Image
+                            style={{ width: 60, height: 60, alignSelf: 'center' }}
+                            source={require('../images/Icons/barcode-scanning.png')}
+                        />
+                        <Text style={myStyles.desIcon}>จัดการสินค้า</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={myStyles.icon}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                        <Image
+                            style={{ width: 60, height: 60, alignSelf: 'center' }}
+                            source={require('../images/Icons/barcode-scanning.png')}
+                        />
+                        <Text style={myStyles.desIcon}>จัดการสินค้า</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={myStyles.icon}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                        <Image
+                            style={{ width: 60, height: 60, alignSelf: 'center' }}
+                            source={require('../images/Icons/barcode-scanning.png')}
+                        />
+                        <Text style={myStyles.desIcon}>จัดการสินค้า</Text>
+                    </TouchableOpacity>
+                </View>
+                
+
+
             </View>
+
+            <View style={myStyles.circle2}></View>
+        </View>
 
     )
 }
@@ -43,13 +117,23 @@ const myStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    icon: {
+        padding: 25
+    },
+    desIcon:{
+        //{ color: Colors.white, fontSize: 16 }
+        color: Colors.white,
+        fontSize: 16,
+        alignSelf:'center'
+
+    },
     circle1: {
         position: 'absolute',
         width: 369,
         height: 389,
-        left: -199,
-        top: -195,
-        backgroundColor: '#FFFFFF',
+        left: -250,
+        top: -200,
+        backgroundColor: 'rgba(255, 255, 255, 0.28)',
         borderRadius: 100000
     },
     circle2: {
@@ -58,11 +142,11 @@ const myStyles = StyleSheet.create({
         height: 278,
         left: 280,
         top: 580,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: 'rgba(255, 255, 255, 0.28)',
         borderRadius: 1000
     },
     header: {
-        fontFamily: "Kanit_400Regular",
+
         fontSize: 35,
         color: Colors.white,
         marginBottom: 30
