@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { View, Text , TouchableOpacity} from 'react-native'
 
 
 import LoginScreen from './src/screens/Login'
@@ -22,34 +23,36 @@ import { color } from 'react-native-elements/dist/helpers';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-/* const navigator = createStackNavigator (
-  {
-    Home: HomeScreen,
-    Login: LoginScreen,
-    Register: RegisterScreen,
-    ForgetPass: ForgetScreen,
-    Product: ProductScreen,
-    SeeItems: SeeItemScreen
-  },
-  {
-    initialRouteName: 'Home',
-    defaultNavigationOptions: {
-      //title: 'NB-POS-APP' ,
-      headerStyle: {
-        backgroundColor: Colors.darkpurple,
-      },
-      headerTitleStyle:{
-        fontSize: 22,
-        color: Colors.white,
-      },
-      headerTitleAlign: 'center',
-    },
-    
-    
-  }
-)
 
-export default createAppContainer(navigator) */
+const CustomBarcodeIcon = ({children , onPress}) => (
+
+  <TouchableOpacity style={{
+    top: -20,
+    justifyContent:'center',
+    alignItems:'center',
+
+  }}
+  onPress={onPress}
+  >
+    <View style={{
+      width:90,
+      height:70,
+      borderRadius:25,
+      backgroundColor: Colors.purple,
+      shadowColor:'#7F5DF0',
+      shadowOffset: {
+        width:0,
+        height:10,
+      },
+      shadowOpacity:0.25,
+      shadowRadius:3.5,
+      elevation:5,  
+    }}>
+      {children}
+    </View>
+  </TouchableOpacity>
+
+)
 
 
 function HomeStack({navigation}) {
@@ -59,25 +62,40 @@ function HomeStack({navigation}) {
         tabBarOptions={{
           activeTintColor: Colors.darkpurple,
           labelStyle: { fontSize:14  , fontWeight:'bold'},
-          tabStyle: { backgroundColor:'white' , borderTopWidth: 3 , borderTopColor: Colors.purple }
+          style: {
+            position:'absolute',
+            height: 60,
+            borderTopLeftRadius:20,
+            borderTopRightRadius:20,
+            elevation: 0,
+            borderTopColor: Colors.purple,
+            borderLeftColor: Colors.purple,
+            borderRightColor: Colors.purple,
+            borderTopWidth:5,
+            borderLeftWidth:3,
+            borderRightWidth:3,
+            backgroundColor:'#ffffff',
+          }
         }}>
         <Tab.Screen
           name="Home"
           options={{
-            tabBarIcon: () => (
-              <AntDesign name="home" size={24} color="black" />
+            tabBarIcon: ({focused}) => (
+              <AntDesign name="home" size={focused ? 30:24} color={focused? Colors.darkpurple :"black"} />
             ),
           }}
           component={HomeScreen}
         />
         <Tab.Screen
           name="Scanner"
-          style={{backgroundColor:'red'}}
           options={{
-  
-            tabBarIcon: () => (
-              <MaterialCommunityIcons name="barcode-scan" size={24} color="black" />
-            ),
+            title:'',
+            tabBarIcon: ({focused}) => (
+              <MaterialCommunityIcons name="barcode-scan" size={36}  style={{ position:'absolute' , top:16}} color={focused? "white":"black"} />
+              ),
+            tabBarButton: (props) => (
+              <CustomBarcodeIcon {...props}/>
+            )
             
           }}
           component={ScannerScreen}
@@ -85,8 +103,8 @@ function HomeStack({navigation}) {
         <Tab.Screen
           name="Setting"
           options={{
-            tabBarIcon: () => (
-              <AntDesign name="setting" size={24} color="black" />
+            tabBarIcon: ({focused}) => (
+              <AntDesign name="setting" size={focused ? 30:24} color={focused? Colors.darkpurple :"black"} />
             ),
           }}
           component={SettingScreen}

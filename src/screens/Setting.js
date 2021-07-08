@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text , SectionList , StyleSheet , TouchableOpacity} from 'react-native'
-
+import Colors from '../constants/colos'
 
 
 const Setting = ({navigation}) => {
@@ -9,15 +9,15 @@ const Setting = ({navigation}) => {
         <SectionList
           sections={[
             {title: 'บัญชี', data: ['จัดการบัญชีผู้ใช้', 'ออกจากระบบ']},
-            {title: 'สินค้า', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
+            {title: 'สินค้า', data: ['จัดการสินค้า', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
             {title: 'ทั่วไป', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
             {title: 'เพิ่มเติม', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
           ]}
           renderItem={({item}) => (
-            <TouchableOpacity onPress={() => navigation.reset({
+            <TouchableOpacity onPress={() => item === 'ออกจากระบบ' ? navigation.reset({
                 index: 0,
                 routes: [{name: 'Login'}],
-              }) }>
+              }) : console.log(item) }>
                   <Text style={styles.item}>{item}</Text>
               </TouchableOpacity>)
             
@@ -31,8 +31,8 @@ const Setting = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container: {
-     flex: 1,
-     paddingTop: 22
+     flex: 0.91,
+     paddingTop:10
     },
     sectionHeader: {
       paddingTop: 2,
