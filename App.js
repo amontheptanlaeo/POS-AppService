@@ -18,7 +18,9 @@ import HomeScreen from './src/screens/Home'
 import ProductScreen from './src/screens/Product'
 import SeeItemScreen from './src/screens/SeeAllItems'
 import Colors from './src/constants/colos'
-
+import Barcode_AddGoods_History from './src/screens/Barcode_AddGoods_History';
+import Barcode_AddGoods from './src/screens/Barcode_AddGoods';
+import Barcode_SellGoods from './src/screens/Barcode_SellGoods';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -96,7 +98,7 @@ function HomeStack({navigation}) {
             )
             
           }}
-          component={ScannerScreen}
+          component={Barcode_SellGoods}
         />
         <Tab.Screen
           name="Setting"
@@ -126,6 +128,9 @@ function App() {
         <Stack.Screen name="Login" component={LoginScreen}/>
         <Stack.Screen name="Register" component={RegisterScreen}/>
         <Stack.Screen name="Product" component={ProductScreen}/>
+        <Stack.Screen name="Barcode_AddGoods_History" component={Barcode_AddGoods_History}/>
+        <Stack.Screen name="Barcode_AddGoods" component={Barcode_AddGoods}/>
+        <Stack.Screen name="Barcode_SellGoods" component={Barcode_SellGoods}/>
          <Stack.Screen name="Home" options={{
 
            title:'NB-POS-SYSTEM',
