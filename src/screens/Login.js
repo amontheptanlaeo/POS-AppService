@@ -1,16 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState , useLayoutEffect} from 'react'
 import { View, Text, StyleSheet, TextInput, Alert , Button , TouchableOpacity, TouchableWithoutFeedback  , Keyboard} from 'react-native'
 import Colors from '../constants/colos'
+import { StatusBar } from 'expo-status-bar'
 
 const Login = ({ navigation }) => {
 
     const [Email, setEmail] = useState("");
     const [Pass, setPass] = useState("");
 
+    useLayoutEffect(()=> {
+        navigation.setOptions({
+            headerTintColor:  "#fff",
+        })
+    },[navigation])
+
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 
+            
             <View style={myStyles.container}>
+                <StatusBar style="dark"/>
                 <Text style={myStyles.header}>เข้าสู่ระบบ</Text>
                 <TextInput
                     style={myStyles.input}
@@ -27,7 +36,7 @@ const Login = ({ navigation }) => {
                     value={Pass}
                 />
                 <View style={{ borderRadius: 100, width: 270 }}>
-                    <TouchableOpacity style={myStyles.roundButton1} onPress={()=> navigation.navigate('Product')}>
+                    <TouchableOpacity style={myStyles.roundButton1} onPress={()=> navigation.replace('Home')}>
                         <Text style={{ color: Colors.white }}>เข้าสู่ระบบ</Text>
                     </TouchableOpacity>
                     <View style={{ flexDirection: 'row', marginTop: 10, alignSelf: 'center' }}>

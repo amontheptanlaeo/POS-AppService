@@ -1,9 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState , useLayoutEffect} from 'react'
 import { View, Text, StyleSheet, TextInput, Alert , Button , TouchableOpacity, TouchableWithoutFeedback  , Keyboard} from 'react-native'
 import Colors from '../constants/colos'
+import { StatusBar } from 'expo-status-bar'
 
 const Register = ({ navigation })  => {
 
+    useLayoutEffect(()=> {
+        navigation.setOptions({
+            headerBackTitle: "Back to Login",
+        })
+    },[navigation])
 
     const [Email, setEmail] = useState("");
     const [Pass, setPass] = useState("");
@@ -13,6 +19,7 @@ const Register = ({ navigation })  => {
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 
             <View style={myStyles.container}>
+                <StatusBar style="dark"/>
                 <Text style={myStyles.header}>สมัครสมาชิก</Text>
                 <TextInput
                     style={myStyles.input}
