@@ -7,8 +7,9 @@ import HomeScreen from './src/screens/Home'
 import ProductScreen from './src/screens/Product'
 import SeeItemScreen from './src/screens/SeeAllItems'
 import Colors from './src/constants/colos'
-
-
+import Barcode_AddGoods_History from './src/screens/Barcode_AddGoods_History'
+import Barcode_AddGoods from './src/screens/Barcode_AddGoods'
+import Barcode_SellGoods from './src/screens/Barcode_SellGoods'
 const navigator = createStackNavigator (
   {
     Home: HomeScreen,
@@ -16,7 +17,10 @@ const navigator = createStackNavigator (
     Register: RegisterScreen,
     ForgetPass: ForgetScreen,
     Product: ProductScreen,
-    SeeItems: SeeItemScreen
+    SeeItems: SeeItemScreen,
+    Barcode_AddGoods_History:Barcode_AddGoods_History,
+    Barcode_AddGoods:Barcode_AddGoods,
+    Barcode_SellGoods:Barcode_SellGoods
   },
   {
     initialRouteName: 'Home',

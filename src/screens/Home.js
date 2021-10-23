@@ -28,6 +28,15 @@ const Home = ({ navigation }) => {
                     <TouchableOpacity style={myStyles.roundButton1} onPress={()=> navigation.navigate('Register')}>
                         <Text style={{ color: Colors.white , fontSize: 22 , fontFamily: "Kanit_400Regular"}}>สมัครสมาชิก</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity style={myStyles.roundButton1} onPress={()=> navigation.navigate('Barcode_AddGoods_History')}>
+                        <Text style={{ color: Colors.white , fontSize: 22 , fontFamily: "Kanit_400Regular"}}>เพิ่มสินค้า</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={myStyles.roundButton1} onPress={()=> navigation.navigate('Barcode_AddGoods')}>
+                        <Text style={{ color: Colors.white , fontSize: 22 , fontFamily: "Kanit_400Regular"}}>เพิ่มครั้งแรก</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={myStyles.roundButton1} onPress={()=> navigation.navigate('Barcode_SellGoods')}>
+                        <Text style={{ color: Colors.white , fontSize: 22 , fontFamily: "Kanit_400Regular"}}>สแกนขาย</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
 
