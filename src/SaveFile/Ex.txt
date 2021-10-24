@@ -1,0 +1,316 @@
+ if (value >= 1000) {
+          var Pay = Math.floor(value / 1000);
+          value = value - Pay * 1000;
+          if (Pay > resp.data[0].B1000) {
+            var ex = Pay - resp.data[0].B1000;
+            value = value + ex * 1000;
+            Pay = resp.data[0].B1000;
+            setB1000(0);
+          } else {
+            setB1000(resp.data[0].B1000 - Pay);
+          }
+          B1000Add = Pay;
+          console.log("จำนวนแบงค์ 1000: ", Pay);
+        }
+        if (value >= 500) {
+          var Pay = Math.floor(value / 500);
+          value = value - Pay * 500;
+          if (Pay > resp.data[0].B500) {
+            var ex = Pay - resp.data[0].B500;
+            value = value + ex * 500;
+            Pay = resp.data[0].B500;
+            setB500(0);
+          } else {
+            setB500(resp.data[0].B500 - Pay);
+          }
+          B500Add = Pay;
+          console.log("จำนวนแบงค์ 500: ", Pay);
+        }
+        if (value >= 100) {
+          var Pay = Math.floor(value / 100);
+          value = value - Pay * 100;
+          if (Pay > resp.data[0].B100) {
+            var ex = Pay - resp.data[0].B100;
+            value = value + ex * 100;
+            Pay = resp.data[0].B100;
+            setB100(0);
+          } else {
+            setB100(resp.data[0].B100 - Pay);
+          }
+          B100Add = Pay;
+          console.log("จำนวนแบงค์ 100: ", Pay);
+        }
+        if (value >= 50) {
+          var Pay = Math.floor(value / 50);
+          value = value - Pay * 50;
+          if (Pay > resp.data[0].B50) {
+            var ex = Pay - resp.data[0].B50;
+            value = value + ex * 50;
+            Pay = resp.data[0].B50;
+            setB50(0);
+          } else {
+            setB50(resp.data[0].B50 - Pay);
+          }
+          B50Add = Pay;
+          console.log("จำนวนแบงค์ 50: ", Pay);
+        }
+        if (value >= 20) {
+          var Pay = Math.floor(value / 20);
+          value = value - Pay * 20;
+          if (Pay > resp.data[0].B20) {
+            var ex = Pay - resp.data[0].B20;
+            value = value + ex * 20;
+            Pay = resp.data[0].B20;
+            setB20(0);
+          } else {
+            setB20(resp.data[0].B20 - Pay);
+          }
+          B20Add = Pay;
+          console.log("จำนวนแบงค์ 20: ", Pay);
+        }
+        if (value >= 10) {
+          var Pay = Math.floor(value / 10);
+          value = value - Pay * 10;
+          if (Pay > resp.data[0].C10) {
+            var ex = Pay - resp.data[0].C10;
+            value = value + ex * 10;
+            Pay = resp.data[0].C10;
+            setC10(0);
+          } else {
+            setC10(resp.data[0].C10 - Pay);
+          }
+          C10Add = Pay;
+          console.log("จำนวนเหรียญ 10: ", Pay);
+        }
+
+        if (value >= 5) {
+          var Pay = Math.floor(value / 5);
+          value = value - Pay * 5;
+          if (Pay > resp.data[0].C5) {
+            var ex = Pay - resp.data[0].C5;
+            value = value + ex * 5;
+            Pay = resp.data[0].C5;
+            setC5(0);
+          } else {
+            setC5(resp.data[0].C5 - Pay);
+          }
+          C5Add = Pay;
+          console.log("จำนวนเหรียญ 5: ", Pay);
+        }
+        if (value >= 2) {
+          var Pay = Math.floor(value / 2);
+          value = value - Pay * 2;
+          if (Pay > resp.data[0].C2) {
+            var ex = Pay - resp.data[0].C2;
+            value = value + ex * 2;
+            Pay = resp.data[0].C2;
+            setC2(0);
+          } else {
+            setC2(resp.data[0].C2 - Pay);
+          }
+          C2Add = Pay;
+          console.log("จำนวนเหรียญ 2: ", Pay);
+        }
+        if (value >= 1) {
+          var Pay = Math.floor(value / 1);
+          value = value - Pay * 1;
+          if (Pay > resp.data[0].C1) {
+            var ex = Pay - resp.data[0].C1;
+            value = value + ex * 1;
+            Pay = resp.data[0].C1;
+            setC1(0);
+          } else {
+            setC1(resp.data[0].C1 - Pay);
+          }
+          C1Add = Pay;
+          console.log("จำนวนเหรียญ 1: ", Pay);
+        }
+        if (value >= 0.5) {
+          var Pay = Math.floor(value / 0.5);
+          value = value - Pay * 0.5;
+          if (Pay > resp.data[0].C1) {
+            var ex = Pay - resp.data[0].C50;
+            value = value + ex * 0.5;
+            Pay = resp.data[0].C50;
+            setC50(0);
+          } else {
+            setC50(resp.data[0].C50 - Pay);
+          }
+          C50Add = Pay;
+          console.log("จำนวนเหรียญ 25 สตางค์: ", Pay);
+        }
+        if (value >= 0.25) {
+          var Pay = Math.floor(value / 0.25);
+          value = value - Pay * 0.25;
+          if (Pay > resp.data[0].C25) {
+            var ex = Pay - resp.data[0].C25;
+            value = value + ex * 0.25;
+            Pay = resp.data[0].C25;
+            setC25(0);
+          } else {
+            setC25(resp.data[0].C25 - Pay);
+          }
+          C25Add = Pay;
+          console.log("จำนวนเหรียญ 25 สตางค์: ", Pay);
+        }
+
+
+
+
+
+
+         if (value >= 1000) {
+          var Pay = Math.floor(value / 1000);
+          value = value - Pay * 1000;
+          if (Pay > resp.data[0].B1000) {
+            var ex = Pay - resp.data[0].B1000;
+            value = value + ex * 1000;
+            Pay = resp.data[0].B1000;
+            setB1000(0);
+          } else {
+            setB1000(resp.data[0].B1000 - Pay);
+          }
+          setB1000Add(Pay);
+          console.log("จำนวนแบงค์ 1000: ", Pay);
+        }
+        if (value >= 500) {
+          var Pay = Math.floor(value / 500);
+          value = value - Pay * 500;
+          if (Pay > resp.data[0].B500) {
+            var ex = Pay - resp.data[0].B500;
+            value = value + ex * 500;
+            Pay = resp.data[0].B500;
+            setB500(0);
+          } else {
+            setB500(resp.data[0].B500 - Pay);
+          }
+          setB500Add(Pay);
+          console.log("จำนวนแบงค์ 500: ", Pay);
+        }
+        if (value >= 100) {
+          var Pay = Math.floor(value / 100);
+          value = value - Pay * 100;
+          if (Pay > resp.data[0].B100) {
+            var ex = Pay - resp.data[0].B100;
+            value = value + ex * 100;
+            Pay = resp.data[0].B100;
+            setB100(0);
+          } else {
+            setB100(resp.data[0].B100 - Pay);
+          }
+          setB100Add(Pay);
+          console.log("จำนวนแบงค์ 100: ", Pay);
+        }
+        if (value >= 50) {
+          var Pay = Math.floor(value / 50);
+          value = value - Pay * 50;
+          if (Pay > resp.data[0].B50) {
+            var ex = Pay - resp.data[0].B50;
+            value = value + ex * 50;
+            Pay = resp.data[0].B50;
+            setB50(0);
+          } else {
+            setB50(resp.data[0].B50 - Pay);
+          }
+          setB50Add(Pay);
+          console.log("จำนวนแบงค์ 50: ", Pay);
+        }
+        if (value >= 20) {
+          var Pay = Math.floor(value / 20);
+          value = value - Pay * 20;
+          if (Pay > resp.data[0].B20) {
+            var ex = Pay - resp.data[0].B20;
+            value = value + ex * 20;
+            Pay = resp.data[0].B20;
+            setB20(0);
+          } else {
+            setB20(resp.data[0].B20 - Pay);
+          }
+          setB20Add(Pay);
+          console.log("จำนวนแบงค์ 20: ", Pay);
+        }
+        if (value >= 10) {
+          var Pay = Math.floor(value / 10);
+          value = value - Pay * 10;
+          if (Pay > resp.data[0].C10) {
+            var ex = Pay - resp.data[0].C10;
+            value = value + ex * 10;
+            Pay = resp.data[0].C10;
+            setC10(0);
+          } else {
+            setC10(resp.data[0].C10 - Pay);
+          }
+          setC10Add(Pay);
+          console.log("จำนวนเหรียญ 10: ", Pay);
+        }
+
+        if (value >= 5) {
+          var Pay = Math.floor(value / 5);
+          value = value - Pay * 5;
+          if (Pay > resp.data[0].C5) {
+            var ex = Pay - resp.data[0].C5;
+            value = value + ex * 5;
+            Pay = resp.data[0].C5;
+            setC5(0);
+          } else {
+            setC5(resp.data[0].C5 - Pay);
+          }
+          setC5Add(Pay);
+          console.log("จำนวนเหรียญ 5: ", Pay);
+        }
+        if (value >= 2) {
+          var Pay = Math.floor(value / 2);
+          value = value - Pay * 2;
+          if (Pay > resp.data[0].C2) {
+            var ex = Pay - resp.data[0].C2;
+            value = value + ex * 2;
+            Pay = resp.data[0].C2;
+            setC2(0);
+          } else {
+            setC2(resp.data[0].C2 - Pay);
+          }
+          setC2Add(Pay);
+          console.log("จำนวนเหรียญ 2: ", Pay);
+        }
+        if (value >= 1) {
+          var Pay = Math.floor(value / 1);
+          value = value - Pay * 1;
+          if (Pay > resp.data[0].C1) {
+            var ex = Pay - resp.data[0].C1;
+            value = value + ex * 1;
+            Pay = resp.data[0].C1;
+            setC1(0);
+          } else {
+            setC1(resp.data[0].C1 - Pay);
+          }
+          setC1Add(Pay);
+          console.log("จำนวนเหรียญ 1: ", Pay);
+        }
+        if (value >= 0.5) {
+          var Pay = Math.floor(value / 0.5);
+          value = value - Pay * 0.5;
+          if (Pay > resp.data[0].C1) {
+            var ex = Pay - resp.data[0].C50;
+            value = value + ex * 0.5;
+            Pay = resp.data[0].C50;
+            setC50(0);
+          } else {
+            setC50(resp.data[0].C50 - Pay);
+          }
+          setC50Add(Pay);
+          console.log("จำนวนเหรียญ 25 สตางค์: ", Pay);
+        }
+        if (value >= 0.25) {
+          var Pay = Math.floor(value / 0.25);
+          value = value - Pay * 0.25;
+          if (Pay > resp.data[0].C25) {
+            var ex = Pay - resp.data[0].C25;
+            value = value + ex * 0.25;
+            Pay = resp.data[0].C25;
+            setC25(0);
+          } else {
+            setC25(resp.data[0].C25 - Pay);
+          }
+          setC25Add(Pay);
+          console.log("จำนวนเหรียญ 25 สตางค์: ", Pay);
+        }

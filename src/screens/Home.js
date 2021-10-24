@@ -1,9 +1,27 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import Colors from "../constants/colos";
 import { StatusBar } from "expo-status-bar";
 
 const Home = ({ navigation }) => {
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem("@storage_Key");
+      if (jsonValue != null) {
+        console.log(JSON.parse(jsonValue));
+      } else {
+        console.log("Not Data");
+      }
+    } catch (e) {
+      // error reading value
+    }
+  };
+
   return (
     <View style={myStyles.container}>
       <StatusBar style="dark" />
@@ -27,7 +45,7 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={myStyles.icon}>
-          <TouchableOpacity onPress={() => navigation.navigate("Product")}>
+          <TouchableOpacity onPress={() => navigation.navigate("SellScreen")}>
             <Image
               style={{ width: 60, height: 60, alignSelf: "center" }}
               source={require("../images/Icons/cash-register.png")}
@@ -44,8 +62,10 @@ const Home = ({ navigation }) => {
             <Text style={myStyles.desIcon}>ภาพรวมร้าน</Text>
           </TouchableOpacity>
         </View>
-        <View style={myStyles.icon}> 
-          <TouchableOpacity onPress={() => navigation.navigate("Barcode_AddGoods_History")}>
+        <View style={myStyles.icon}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Barcode_AddGoods_History")}
+          >
             <Image
               style={{ width: 60, height: 60, alignSelf: "center" }}
               source={require("../images/Icons/barcode-scanning.png")}
@@ -54,7 +74,9 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={myStyles.icon}>
-          <TouchableOpacity onPress={() => navigation.navigate("Barcode_AddGoods")}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Barcode_AddGoods")}
+          >
             <Image
               style={{ width: 60, height: 60, alignSelf: "center" }}
               source={require("../images/Icons/barcode-scanning.png")}
@@ -63,7 +85,9 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={myStyles.icon}>
-          <TouchableOpacity onPress={() => navigation.navigate("Barcode_SellGoods")}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Barcode_SellGoods")}
+          >
             <Image
               style={{ width: 60, height: 60, alignSelf: "center" }}
               source={require("../images/Icons/barcode-scanning.png")}

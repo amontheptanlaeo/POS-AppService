@@ -10,6 +10,7 @@ import {
   TextInput,
 } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 const Barcode_SellGoods = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -21,13 +22,31 @@ const Barcode_SellGoods = () => {
   const [Goods_Name, setGoods_Name] = useState(null);
   const [Count_Sell, setCount_Sell] = useState(null);
   const [Price_Unit, setPrice_Unit] = useState(null);
+  const [Branch_ID, setBranch_ID] = useState(null);
+  const [Store_ID, setStore_ID] = useState(null);
+  const [ID, setID] = useState(null);
   useEffect(() => {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === "granted");
     })();
+    getData()
   }, []);
-
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem("@storage_Key");
+      if (jsonValue != null) {
+        console.log("สแกนขาย",JSON.parse(jsonValue));
+        setBranch_ID(JSON.parse(jsonValue).Branch_ID);
+        setStore_ID(JSON.parse(jsonValue).Store_ID);
+        setID(JSON.parse(jsonValue).ID);
+      } else {
+        console.log("Not Data");
+      }
+    } catch (e) {
+      // error reading value
+    }
+  };
   const handleBarCodeScanned = async ({ type, data }) => {
     setScanned(true);
 
@@ -35,7 +54,7 @@ const Barcode_SellGoods = () => {
       method: "POST",
       url: "https://posappserver.herokuapp.com/getallgoods-native",
       data: {
-        Branch_ID: "20211022152900409354545223345",
+        Branch_ID:Branch_ID,
         Goods_ID: data,
       },
     }).then((res) => {
@@ -80,9 +99,9 @@ const Barcode_SellGoods = () => {
     await axios.post(
       "https://posappserver.herokuapp.com/postbuffer-cart-sell",
       {
-        ID: "223345435454520211022152900409",
-        Store_ID: "20211022152900409354545",
-        Branch_ID: "20211022152900409354545223345",
+        ID: ID,
+        Store_ID: Store_ID,
+        Branch_ID: Branch_ID,
         Goods_ID: Goods_ID,
         Count_Sell: Count_Sell,
         Price_Unit: Price_Unit,

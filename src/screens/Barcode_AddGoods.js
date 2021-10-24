@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 function Barcode_AddGoods() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -22,13 +23,31 @@ function Barcode_AddGoods() {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([]);
+  const [Branch_ID, setBranch_ID] = useState(null);
+  const [Store_ID, setStore_ID] = useState(null);
+  const [ID, setID] = useState(null);
   useEffect(() => {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === "granted");
     })();
+    getData()
   }, []);
-
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem("@storage_Key");
+      if (jsonValue != null) {
+        console.log("เพิ่มสินค้าครั้งแรก",JSON.parse(jsonValue));
+        setBranch_ID(JSON.parse(jsonValue).Branch_ID);
+        setStore_ID(JSON.parse(jsonValue).Store_ID);
+        setID(JSON.parse(jsonValue).ID);
+      } else {
+        console.log("Not Data");
+      }
+    } catch (e) {
+      // error reading value
+    }
+  };
   const handleBarCodeScanned = async ({ type, data }) => {
     setScanned(true);
     const data_res=[]
@@ -36,7 +55,7 @@ function Barcode_AddGoods() {
       method: "POST",
       url: "https://posappserver.herokuapp.com/getcategory",
       data: {
-        Branch_ID: "20211022152900409354545223345",
+        Branch_ID: Branch_ID,
       },
     }).then((res) => {
       setGoods_ID(data);
@@ -67,8 +86,8 @@ function Barcode_AddGoods() {
         Price: 0,
         Goods_Name: Goods_Name,
         Type_ID: Type_ID,
-        Store_ID: "20211022152900409354545",
-        Branch_ID: "20211022152900409354545223345",
+        Store_ID: Store_ID,
+        Branch_ID: Branch_ID,
         Goods_img:
           "http://www2.tistr.or.th/Projects/tistrbiza/images/default_product.png",
         Favorite: false,
