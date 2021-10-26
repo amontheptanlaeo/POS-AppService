@@ -8,10 +8,12 @@ import {
   StyleSheet,
   Pressable,
   TextInput,
+  TouchableOpacity
 } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import Colors from "../constants/colos";
 const Barcode_SellGoods = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
@@ -148,15 +150,9 @@ const Barcode_SellGoods = () => {
               <Text>ราคา ต่อชิ้น {Price_Unit}</Text>
               <Text>ราคา รวม {Price_Unit * Count_Sell}</Text>
               <View style={styles.buttonsub}>
-                <Button title={"submit"} onPress={() => onSubmitCart()} />
+                <TouchableOpacity style={myStyles.roundButton1}  onPress={() => onSubmitCart()} ><Text style={{ color: Colors.white }}>submit</Text></TouchableOpacity>
               </View>
-
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
+              <TouchableOpacity style={myStyles.roundButton1}  onPress={() => setModalVisible(!modalVisible)} ><Text style={{ color: Colors.white }}>ปิด</Text></TouchableOpacity>
             </View>
           </View>
         </Modal>
@@ -229,11 +225,78 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   input: {
-    height: 40,
-    margin: 12,
+    height: 35,
+    borderColor: Colors.white,
     borderWidth: 1,
-    padding: 10,
+    backgroundColor: "white",
+    borderRadius: 8,
+    padding: 5,
+    width: 270,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 10,
   },
 });
+
+const myStyles = StyleSheet.create({
+  container: {
+    backgroundColor: Colors.darkpurple,
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  marginT:{
+    marginTop:30
+  },
+  header: {
+    fontSize: 20,
+    color: Colors.white,
+    marginBottom: 10,
+  },
+  input: {
+    height: 35,
+    borderColor: Colors.white,
+    borderWidth: 1,
+    backgroundColor: "white",
+    borderRadius: 8,
+    padding: 5,
+    width: 270,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  inputTop: {
+    height: 35,
+    borderColor: Colors.white,
+    borderWidth: 1,
+    backgroundColor: "white",
+    borderRadius: 8,
+    padding: 5,
+    width: 270,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 10,
+    marginTop: 30
+  },
+  roundButton1: {
+    width: 270,
+    height: 35,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: Colors.purple,
+  },
+});
+
 
 export default Barcode_SellGoods;

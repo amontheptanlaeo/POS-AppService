@@ -5,11 +5,12 @@ import {
   Text,
   Button,
   TextInput,
-  RefreshControl,
+  TouchableOpacity,
 } from "react-native";
 import { DataTable } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import Colors from "../constants/colos";
 
 export class SellScreen extends Component {
   constructor(props) {
@@ -400,16 +401,77 @@ export class SellScreen extends Component {
             );
           })}
         </DataTable>
-        <Text>ยอดรวม:{this.state.SumGoods}</Text>
+        <View style={{justifyContent:'center', alignItems:'center'}}>
+           <Text style={myStyles.marginT}>ยอดรวม:{this.state.SumGoods}</Text>
         <TextInput
+          style={myStyles.input}
           onChangeText={(text) => this.setState({ Money_User: text })}
           value={this.state.Money_User}
           placeholder="จำนวนเงินที่รับมาจากลูกค้า"
         />
-        <Button title={"ชำระเงิน"} onPress={() => onExchange()} />
+        <TouchableOpacity style={myStyles.roundButton1}  onPress={() => onExchange()} ><Text style={{ color: Colors.white }}>ชำระเงิน</Text></TouchableOpacity>
+        </View>
+       
       </View>
     );
   }
 }
+
+const myStyles = StyleSheet.create({
+  container: {
+    backgroundColor: Colors.darkpurple,
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  marginT:{
+    marginTop:30
+  },
+  header: {
+    fontSize: 20,
+    color: Colors.white,
+    marginBottom: 10,
+  },
+  input: {
+    height: 35,
+    borderColor: Colors.white,
+    borderWidth: 1,
+    backgroundColor: "white",
+    borderRadius: 8,
+    padding: 5,
+    width: 270,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  inputTop: {
+    height: 35,
+    borderColor: Colors.white,
+    borderWidth: 1,
+    backgroundColor: "white",
+    borderRadius: 8,
+    padding: 5,
+    width: 270,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 10,
+    marginTop: 30
+  },
+  roundButton1: {
+    width: 270,
+    height: 35,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: Colors.purple,
+  },
+});
 
 export default SellScreen;
