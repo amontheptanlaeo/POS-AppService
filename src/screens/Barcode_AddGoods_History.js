@@ -204,13 +204,7 @@ const Barcode_AddGoods_History = () => {
               <View style={styles.buttonsub}>
                 <TouchableOpacity style={myStyles.roundButton1}  onPress={() =>  onSubmitCart()} ><Text style={{ color: Colors.white }}>submit</Text></TouchableOpacity>
               </View>
-
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
+              <TouchableOpacity style={myStyles.roundButton1}  onPress={() => setModalVisible(!modalVisible)} ><Text style={{ color: Colors.white }}>ปิด</Text></TouchableOpacity>
             </View>
           </View>
         </Modal>
