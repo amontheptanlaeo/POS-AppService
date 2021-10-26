@@ -58,9 +58,14 @@ const Barcode_AddGoods_History = () => {
         Goods_ID: data,
       },
     }).then((res) => {
-      setGoods_ID(data);
+      if(res.data==""){
+        alert("ไม่มีในฐานข้อมูล")
+      }else{
+        setGoods_ID(data);
       setGoods_Name(res.data[0].Goods_Name);
       setModalVisible(true);
+      }
+      
     });
 
     //alert(`ชนิดบาร์โค้ด ${type} and เลขบาร์โค้ด ${data}`);

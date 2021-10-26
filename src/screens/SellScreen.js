@@ -35,10 +35,16 @@ export default function SellScreen() {
   const [Store_ID, setStore_ID] = useState(null);
   const [ID, setID] = useState(null);
   useEffect(() => {
-    fetchDataCartSell();
-    getTotal();
-    getData();
-  }, []);
+    
+    const interval = setInterval(() => {
+      console.log(555555555)
+      getData();
+      fetchDataCartSell();
+      getTotal();
+    }, 4500);
+    return () => clearInterval(interval);
+  },[]);
+  /////
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem("@storage_Key");
@@ -55,6 +61,9 @@ export default function SellScreen() {
     }
   };
   const fetchDataCartSell = () => {
+    console.log(ID);
+    console.log(Store_ID);
+    console.log(Branch_ID);
     axios({
       method: "POST",
       url: "https://posappserver.herokuapp.com/getbuffer-cart-sell",
@@ -65,29 +74,19 @@ export default function SellScreen() {
       },
     }).then((res) => {
       var data_res = [];
-      if (res.data == "") {
-        data_res = [];
-        setcheckTable(false);
-        // data_res.push({
-        //   Goods_ID: "ไม่มีข้อมูล",
-        //   Goods_Name: "ไม่มีข้อมูล",
-        //   Count_Sell: "ไม่มีข้อมูล",
-        //   Price: "ไม่มีข้อมูล",
-        //   Price_Total: "ไม่มีข้อมูล",
-        // });
-      } else {
-        data_res = [];
-        for (let i = 0; i < res.data.length; i++) {
-          data_res.push(i, {
+      console.log(res);
+
+      for (let i = 0; i < res.data.length; i++) {
+        data_res.push(
+          {
             Goods_ID: res.data[i].Goods_ID,
             Goods_Name: res.data[i].Goods_Name,
             Count_Sell: res.data[i].Count_Sell,
             Price: res.data[i].Price_Unit,
             Price_Total: res.data[i].Price_Total,
-          });
-        }
+          }
+        );
       }
-
       setdata_Map(data_res);
     });
   };
@@ -356,10 +355,6 @@ export default function SellScreen() {
           (currentdate.getSeconds() < 10
             ? "0" + currentdate.getSeconds()
             : currentdate.getSeconds()
-          ).toString() +
-          (currentdate.getMilliseconds() < 100
-            ? "00" + currentdate.getMilliseconds()()
-            : currentdate.getMilliseconds()
           ).toString();
         var data_api = {
           DateAdd: DateAdd,
@@ -417,7 +412,7 @@ export default function SellScreen() {
         {data_Map.map((value, index) => {
           return (
             <DataTable.Row>
-              <DataTable.Cell>{value.Goods_Name}</DataTable.Cell>
+              <DataTable.Cell key={index}>{value.Goods_Name}</DataTable.Cell>
               <DataTable.Cell numeric key={index}>
                 {value.Count_Sell}
               </DataTable.Cell>
@@ -428,14 +423,12 @@ export default function SellScreen() {
                 {value.Price_Total}
               </DataTable.Cell>
               <DataTable.Cell numeric key={index}>
-                {value.Price != "ไม่มีข้อมูล" ? (
-                  <Button
-                    title={"ลบ"}
-                    onPress={() => {
-                      onDeleteCartSell(value);
-                    }}
-                  />
-                ) : null}
+                <Button
+                  title={"ลบ"}
+                  onPress={() => {
+                    onDeleteCartSell(value);
+                  }}
+                />
               </DataTable.Cell>
             </DataTable.Row>
           );

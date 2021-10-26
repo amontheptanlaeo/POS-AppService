@@ -54,12 +54,12 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={myStyles.icon}>
-          <TouchableOpacity onPress={() => navigation.navigate("Product")}>
+          <TouchableOpacity onPress={() => navigation.navigate("product")}>
             <Image
               style={{ width: 60, height: 60, alignSelf: "center" }}
               source={require("../images/Icons/invoice.png")}
             />
-            <Text style={myStyles.desIcon}>ภาพรวมร้าน</Text>
+            <Text style={myStyles.desIcon}>555555</Text>
           </TouchableOpacity>
         </View>
         <View style={myStyles.icon}>
@@ -96,12 +96,12 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={myStyles.icon}>
-          <TouchableOpacity onPress={() => navigation.navigate("Product")}>
+          <TouchableOpacity onPress={() => navigation.navigate("AddgoodsHistoryScreen")}>
             <Image
               style={{ width: 60, height: 60, alignSelf: "center" }}
               source={require("../images/Icons/barcode-scanning.png")}
             />
-            <Text style={myStyles.desIcon}>จัดการสินค้า</Text>
+            <Text style={myStyles.desIcon}>เพิ่มสินค้าใน stock</Text>
           </TouchableOpacity>
         </View>
         <View style={myStyles.icon}>

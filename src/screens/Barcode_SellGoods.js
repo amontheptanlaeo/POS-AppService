@@ -30,13 +30,13 @@ const Barcode_SellGoods = () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === "granted");
     })();
-    getData()
+    getData();
   }, []);
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem("@storage_Key");
       if (jsonValue != null) {
-        console.log("สแกนขาย",JSON.parse(jsonValue));
+        console.log("สแกนขาย", JSON.parse(jsonValue));
         setBranch_ID(JSON.parse(jsonValue).Branch_ID);
         setStore_ID(JSON.parse(jsonValue).Store_ID);
         setID(JSON.parse(jsonValue).ID);
@@ -54,14 +54,18 @@ const Barcode_SellGoods = () => {
       method: "POST",
       url: "https://posappserver.herokuapp.com/getallgoods-native",
       data: {
-        Branch_ID:Branch_ID,
+        Branch_ID: Branch_ID,
         Goods_ID: data,
       },
     }).then((res) => {
-      setGoods_ID(data);
-      setGoods_Name(res.data[0].Goods_Name);
-      setPrice_Unit(res.data[0].Price)
-      setModalVisible(true);
+      if (res.data == "") {
+        alert("ไม่มีในฐานข้อมูล");
+      } else {
+        setGoods_ID(data);
+        setGoods_Name(res.data[0].Goods_Name);
+        setPrice_Unit(res.data[0].Price);
+        setModalVisible(true);
+      }
     });
   };
 
@@ -142,7 +146,7 @@ const Barcode_SellGoods = () => {
                 keyboardType="numeric"
               />
               <Text>ราคา ต่อชิ้น {Price_Unit}</Text>
-              <Text>ราคา รวม {Price_Unit*Count_Sell}</Text>
+              <Text>ราคา รวม {Price_Unit * Count_Sell}</Text>
               <View style={styles.buttonsub}>
                 <Button title={"submit"} onPress={() => onSubmitCart()} />
               </View>

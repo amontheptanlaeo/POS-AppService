@@ -22,6 +22,7 @@ import Barcode_AddGoods_History from './src/screens/Barcode_AddGoods_History';
 import Barcode_AddGoods from './src/screens/Barcode_AddGoods';
 import Barcode_SellGoods from './src/screens/Barcode_SellGoods';
 import SellScreen from './src/screens/SellScreen';
+import AddgoodsHistoryScreen from './src/screens/AddGoods_History_Screen';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -133,6 +134,7 @@ function App() {
         <Stack.Screen name="Barcode_AddGoods" component={Barcode_AddGoods}/>
         <Stack.Screen name="Barcode_SellGoods" component={Barcode_SellGoods}/>
         <Stack.Screen name="SellScreen" component={SellScreen}/>
+        <Stack.Screen name="AddgoodsHistoryScreen" component={AddgoodsHistoryScreen}/>
          <Stack.Screen name="Home" options={{
 
            title:'NB-POS-SYSTEM',

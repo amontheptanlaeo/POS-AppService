@@ -8,10 +8,8 @@ const Setting = ({navigation}) => {
         <View style={styles.container}>
         <SectionList
           sections={[
-            {title: 'บัญชี', data: ['จัดการบัญชีผู้ใช้', 'ออกจากระบบ']},
-            {title: 'สินค้า', data: ['จัดการสินค้า', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
-            {title: 'ทั่วไป', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
-            {title: 'เพิ่มเติม', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
+            {title: 'บัญชี', data: ['ออกจากระบบ']}
+            
           ]}
           renderItem={({item}) => (
             <TouchableOpacity onPress={() => item === 'ออกจากระบบ' ? navigation.reset({
