@@ -35,40 +35,24 @@ const Home = ({ navigation }) => {
           alignItems: "center",
         }}
       >
-        <View style={myStyles.icon}>
-          <TouchableOpacity onPress={() => navigation.navigate("Product")}>
-            <Image
-              style={{ width: 60, height: 60, alignSelf: "center" }}
-              source={require("../images/Icons/pointer-screen.png")}
-            />
-            <Text style={myStyles.desIcon}>จัดการสินค้า</Text>
-          </TouchableOpacity>
-        </View>
+        
         <View style={myStyles.icon}>
           <TouchableOpacity onPress={() => navigation.navigate("SellScreen")}>
             <Image
-              style={{ width: 60, height: 60, alignSelf: "center" }}
+              style={{ width: 80, height: 80, alignSelf: "center" }}
               source={require("../images/Icons/cash-register.png")}
             />
             <Text style={myStyles.desIcon}>ขาย</Text>
           </TouchableOpacity>
         </View>
-        <View style={myStyles.icon}>
-          <TouchableOpacity onPress={() => navigation.navigate("product")}>
-            <Image
-              style={{ width: 60, height: 60, alignSelf: "center" }}
-              source={require("../images/Icons/invoice.png")}
-            />
-            <Text style={myStyles.desIcon}>555555</Text>
-          </TouchableOpacity>
-        </View>
+  
         <View style={myStyles.icon}>
           <TouchableOpacity
             onPress={() => navigation.navigate("Barcode_AddGoods_History")}
           >
             <Image
-              style={{ width: 60, height: 60, alignSelf: "center" }}
-              source={require("../images/Icons/barcode-scanning.png")}
+              style={{ width: 80, height: 80, alignSelf: "center" }}
+              source={require("../images/Icons/delivery-truck.png")}
             />
             <Text style={myStyles.desIcon}>เพิ่มแหล่งที่มา</Text>
           </TouchableOpacity>
@@ -78,10 +62,10 @@ const Home = ({ navigation }) => {
             onPress={() => navigation.navigate("Barcode_AddGoods")}
           >
             <Image
-              style={{ width: 60, height: 60, alignSelf: "center" }}
-              source={require("../images/Icons/barcode-scanning.png")}
+              style={{ width: 80, height: 80, alignSelf: "center" }}
+              source={require("../images/Icons/hand-package.png")}
             />
-            <Text style={myStyles.desIcon}>เพิ่มสินค้าครั้งแรก</Text>
+            <Text style={myStyles.desIcon}>เพิ่มสินค้า</Text>
           </TouchableOpacity>
         </View>
         <View style={myStyles.icon}>
@@ -89,39 +73,23 @@ const Home = ({ navigation }) => {
             onPress={() => navigation.navigate("Barcode_SellGoods")}
           >
             <Image
-              style={{ width: 60, height: 60, alignSelf: "center" }}
+              style={{ width: 80, height: 80, alignSelf: "center" }}
               source={require("../images/Icons/barcode-scanning.png")}
             />
-            <Text style={myStyles.desIcon}>ขายสินค้า</Text>
+            <Text style={myStyles.desIcon}>แสกนขาย</Text>
           </TouchableOpacity>
         </View>
         <View style={myStyles.icon}>
           <TouchableOpacity onPress={() => navigation.navigate("AddgoodsHistoryScreen")}>
             <Image
-              style={{ width: 60, height: 60, alignSelf: "center" }}
-              source={require("../images/Icons/barcode-scanning.png")}
+              style={{ width: 80, height: 80, alignSelf: "center" }}
+              source={require("../images/Icons/invoice.png")}
             />
-            <Text style={myStyles.desIcon}>เพิ่มสินค้าใน stock</Text>
+            <Text style={myStyles.desIcon}>เพิ่มสินค้าลง stock</Text>
           </TouchableOpacity>
         </View>
-        <View style={myStyles.icon}>
-          <TouchableOpacity onPress={() => navigation.navigate("Product")}>
-            <Image
-              style={{ width: 60, height: 60, alignSelf: "center" }}
-              source={require("../images/Icons/barcode-scanning.png")}
-            />
-            <Text style={myStyles.desIcon}>จัดการสินค้า</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={myStyles.icon}>
-          <TouchableOpacity onPress={() => navigation.navigate("Product")}>
-            <Image
-              style={{ width: 60, height: 60, alignSelf: "center" }}
-              source={require("../images/Icons/barcode-scanning.png")}
-            />
-            <Text style={myStyles.desIcon}>จัดการสินค้า</Text>
-          </TouchableOpacity>
-        </View>
+      
+
       </View>
 
       <View style={myStyles.circle2}></View>
