@@ -54,7 +54,7 @@ const Home = ({ navigation }) => {
               style={{ width: 80, height: 80, alignSelf: "center" }}
               source={require("../images/Icons/delivery-truck.png")}
             />
-            <Text style={myStyles.desIcon}>เพิ่มแหล่งที่มา</Text>
+            <Text style={myStyles.desIcon}>สแกนเพิ่มแหล่งที่มา</Text>
           </TouchableOpacity>
         </View>
         <View style={myStyles.icon}>
@@ -65,7 +65,7 @@ const Home = ({ navigation }) => {
               style={{ width: 80, height: 80, alignSelf: "center" }}
               source={require("../images/Icons/hand-package.png")}
             />
-            <Text style={myStyles.desIcon}>เพิ่มสินค้า</Text>
+            <Text style={myStyles.desIcon}>สแกนเพิ่มสินค้า</Text>
           </TouchableOpacity>
         </View>
         <View style={myStyles.icon}>

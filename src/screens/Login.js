@@ -90,22 +90,22 @@ const Login = ({ navigation }) => {
           >
             <Text style={{ color: Colors.white }}>เข้าสู่ระบบ</Text>
           </TouchableOpacity>
-          <View
+          {/* <View
             style={{ flexDirection: "row", marginTop: 10, alignSelf: "center" }}
           >
             <Text style={{ color: Colors.white }}>ยังไม่เคยเป็นสมาชิก? </Text>
             <TouchableOpacity onPress={() => navigation.navigate("Register")}>
               <Text style={{ color: Colors.white }}>สมัครสมาชิก</Text>
             </TouchableOpacity>
-          </View>
-          <View
+          </View> */}
+          {/* <View
             style={{ flexDirection: "row", marginTop: 10, alignSelf: "center" }}
           >
             <Text style={{ color: Colors.white }}>ลืมรหัสผ่าน? </Text>
             <TouchableOpacity onPress={() => navigation.navigate("ForgetPass")}>
               <Text style={{ color: Colors.white }}>คลิก</Text>
             </TouchableOpacity>
-          </View>
+          </View> */}
         </View>
       </View>
     </TouchableWithoutFeedback>

@@ -167,7 +167,7 @@ const Barcode_AddGoods_History = () => {
                 style={styles.input}
                 onChangeText={setGoods_ID}
                 value={Goods_ID}
-                placeholder="useless placeholder"
+                placeholder=""
                 keyboardType="numeric"
               />
               <Text>ชื่อสินค้า</Text>
@@ -175,14 +175,14 @@ const Barcode_AddGoods_History = () => {
                 style={styles.input}
                 onChangeText={setGoods_Name}
                 value={Goods_Name}
-                placeholder="useless placeholder"
+                placeholder="ชื่อสินค้า"
               />
               <Text>จำนวนที่ต้องการ</Text>
               <TextInput
                 style={styles.input}
                 onChangeText={setCount_Recive}
                 value={Count_Recive}
-                placeholder="useless placeholder"
+                placeholder="จำนวนที่ต้องการ"
                 keyboardType="numeric"
               />
               <Text>ราคาต้นทุน</Text>
@@ -190,7 +190,7 @@ const Barcode_AddGoods_History = () => {
                 style={styles.input}
                 onChangeText={setCost_Unit}
                 value={Cost_Unit}
-                placeholder="useless placeholder"
+                placeholder="ราคาต้นทุน"
                 keyboardType="numeric"
               />
               <Text>ราคาขาย</Text>
@@ -198,7 +198,7 @@ const Barcode_AddGoods_History = () => {
                 style={styles.input}
                 onChangeText={setPrice}
                 value={Price}
-                placeholder="useless placeholder"
+                placeholder="ราคาขาย"
                 keyboardType="numeric"
               />
               <View style={styles.buttonsub}>

@@ -118,7 +118,7 @@ function Barcode_AddGoods() {
                 style={styles.input}
                 onChangeText={setGoods_ID}
                 value={Goods_ID}
-                placeholder="useless placeholder"
+                placeholder="เลขบาร์โค้ด"
                 keyboardType="numeric"
               />
               <Text>ชื่อสินค้า</Text>
@@ -126,7 +126,7 @@ function Barcode_AddGoods() {
                 style={styles.input}
                 onChangeText={setGoods_Name}
                 value={Goods_Name}
-                placeholder="useless placeholder"
+                placeholder="ชื่อสินค้า"
               />
               <View style={styles.buttonsub}>
                 <DropDownPicker

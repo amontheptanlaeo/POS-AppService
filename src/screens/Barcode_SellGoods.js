@@ -135,7 +135,7 @@ const Barcode_SellGoods = () => {
                 style={styles.input}
                 onChangeText={setGoods_ID}
                 value={Goods_ID}
-                placeholder="useless placeholder"
+                placeholder="เลขบาร์โค้ด"
                 keyboardType="numeric"
               />
               <Text>ชื่อสินค้า {Goods_Name}</Text>
@@ -144,7 +144,7 @@ const Barcode_SellGoods = () => {
                 style={styles.input}
                 onChangeText={setCount_Sell}
                 value={Count_Sell}
-                placeholder="useless placeholder"
+                placeholder="จำนวนที่ต้องการ"
                 keyboardType="numeric"
               />
               <Text>ราคา ต่อชิ้น {Price_Unit}</Text>
